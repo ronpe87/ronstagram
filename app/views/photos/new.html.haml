@@ -1,0 +1,7 @@
+.container
+  = form_with(model: @photo, url: photos_path, method: 'post', local: true) do |f|
+    %div
+      = f.label :content, '内容'
+    %div
+      = f.text_area :content
+    = f.submit '保存', class: 'btn-primary'
