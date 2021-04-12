@@ -1,4 +1,12 @@
-%h2 index
+.container
+  - @photos.each do |photo|
+    = link_to photo_path(photo) do
+      .card
+        - if photo.pics.attached?
+          .card_image
+            = image_tag photo.pics
+        .card_content
+          = photo.content
 = link_to new_photo_path do
   .float_btn
     %i.fa.fa-plus

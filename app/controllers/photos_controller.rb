@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :set_photo, only: [:show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -6,11 +7,11 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = Photo.new
+    @photo = current_user.photos.build
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    @photo = current_user.photos.build(photo_params)
     if @photo.save
       redirect_to photo_path(@photo)
     else
@@ -18,11 +19,15 @@ class PhotosController < ApplicationController
     end
   end
 
-  private
-  def photo_params
-    params.require(:photo).permit(:content)
+  def show
   end
 
-  def show
+  private
+  def photo_params
+    params.require(:photo).permit(:content, pics: [])
+  end
+
+  def set_photo
+    @photo = Photo.find(params[:id])
   end
 end
