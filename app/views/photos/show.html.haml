@@ -1,4 +1,4 @@
 .photo
   - if @photo.pics.attached?
-    - @photo.pics.each do |pics|
-      = image_tag @photo.pics
+    .photo_pics
+      = image_tag @photo.pics[0]

@@ -4,7 +4,7 @@
       .card
         - if photo.pics.attached?
           .card_image
-            = image_tag photo.pics
+            = image_tag photo.pics[0]
         .card_content
           = photo.content
 = link_to new_photo_path do
