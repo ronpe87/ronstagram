@@ -6,7 +6,8 @@
           .photo_pics
             = image_tag photo.pics[0]
         .photo_content
-          = photo.content
+          %p= photo.content
+          %p= photo.display_created_at
 = link_to new_photo_path do
   .float_btn
     %i.fa.fa-plus

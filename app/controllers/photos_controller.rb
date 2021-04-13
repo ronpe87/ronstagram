@@ -13,8 +13,9 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.build(photo_params)
     if @photo.save
-      redirect_to photo_path(@photo)
+      redirect_to photo_path(@photo), notice: '保存できた'
     else
+      flash.now[:error] = '保存に失敗しました'
       render :new
     end
   end
