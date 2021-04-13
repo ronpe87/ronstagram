@@ -1,1 +1,14 @@
-%h2 index
+.container
+  - @photos.each do |photo|
+    = link_to photo_path(photo) do
+      .photo
+        - if photo.pics.attached?
+          .photo_pics
+            = image_tag photo.pics[0]
+        .photo_content
+          %p= photo.content
+          %p= photo.user.username
+          %p= photo.display_created_at
+= link_to new_photo_path do
+  .float_btn
+    %i.fa.fa-plus

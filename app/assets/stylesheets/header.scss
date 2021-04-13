@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+
+  &_logos {
+    min-width: 0;
+    display: flex;
+
+    img {
+      cursor: pointer;
+      
+    }
+  }
+}
