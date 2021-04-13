@@ -1,11 +1,11 @@
 .container
   - @photos.each do |photo|
     = link_to photo_path(photo) do
-      .card
+      .photo
         - if photo.pics.attached?
-          .card_image
+          .photo_pics
             = image_tag photo.pics[0]
-        .card_content
+        .photo_content
           = photo.content
 = link_to new_photo_path do
   .float_btn
