@@ -21,6 +21,27 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @photo = Photo.find(params[:id])
+  end
+
+  def edit
+    @photo = Photo.find(params[:id])
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo.update(photo_params)
+      redirect_to photo_path(@photo), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.destroy!
+    redirect_to root_path, notice: '削除に成功しました'
   end
 
   private
