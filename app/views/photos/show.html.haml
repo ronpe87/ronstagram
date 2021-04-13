@@ -2,4 +2,6 @@
   - if @photo.pics.attached?
     .photo_pics
       = image_tag @photo.pics[0]
+  %p= photo.content
+  %p= photo.user.username
   %p= photo.display_created_at
