@@ -5,6 +5,10 @@ class Photo < ApplicationRecord
 
   validates :content, presence: true
 
+  def comment_count
+    comments.count
+  end
+
   def display_created_at
     I18n.l(self.created_at, format: :default)
   end

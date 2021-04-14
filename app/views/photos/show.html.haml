@@ -12,6 +12,9 @@
         = link_to '編集する', edit_photo_path(@photo)
         = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
 .container
+  = link_to photo_comments_path(@photo) do
+    .btn-secondary
+      コメント一覧
   = link_to new_photo_comment_path(@photo) do
     .btn-secondary
       コメントを追加
