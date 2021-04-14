@@ -18,3 +18,4 @@
   = link_to new_photo_comment_path(@photo) do
     .btn-secondary
       コメントを追加
+= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
