@@ -1,6 +1,7 @@
 class Photo < ApplicationRecord
   belongs_to :user
   has_many_attached :pics
+  has_many :comments, dependent: :destroy
 
   validates :content, presence: true
 

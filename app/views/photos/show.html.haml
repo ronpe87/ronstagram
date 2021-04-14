@@ -11,3 +11,11 @@
       .dropdown-content.mini
         = link_to '編集する', edit_photo_path(@photo)
         = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+  %h2 コメント一覧
+  - @comments.each do |comment|
+    .photo_comment
+      %p= comment.content
+.container
+  = link_to new_photo_comment_path(@photo) do
+    .btn-secondary
+      コメントを追加
