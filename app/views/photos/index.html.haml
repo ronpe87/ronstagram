@@ -9,6 +9,7 @@
           %p= photo.content
           %p= photo.user.username
           %p= photo.display_created_at
+          %span= photo.comment_count
 = link_to new_photo_path do
   .float_btn
     %i.fa.fa-plus
