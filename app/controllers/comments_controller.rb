@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comments.all
+    photo = Photo.find(params[:photo_id])
+    @comments = photo.comments
   end
 
   def new
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
     photo = Photo.find(params[:photo_id])
     @comment = photo.comments.build(comment_params.merge!(user_id: current_user.id))
     if @comment.save
-      redirect_to photo_path(photo), notice: 'コメントを追加'
+      redirect_to photo_comments_path(photo), notice: 'コメントを追加'
     else
       flash.now[:error] = '更新できませんでした'
       render :new
