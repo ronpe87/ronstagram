@@ -1,4 +1,5 @@
 %h2 コメント一覧
 - @comments.each do |comment|
   .photo_comment
+    %p= comment.user.username
     %p= comment.content
