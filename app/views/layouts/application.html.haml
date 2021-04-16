@@ -7,22 +7,24 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %link{:href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
-    %header.header
-      .header_logos
-        - if !current_page?(root_path)
-          = link_to :back do
-            = image_tag 'back.png', class: 'header_back'
-        %p.header_pageTitle ronstagram
-      - if user_signed_in?
-        .dropdown
-          = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
-          .dropdown-content
-            %a{:href => "#"} プロフィール
-            = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-      - else
-        = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
+    - if !current_page?(new_user_session_path) && !current_page?(new_user_registration_path)
+      %header.header
+        .header_logos
+          - if !current_page?(root_path)
+            = link_to :back do
+              = image_tag 'back.png', class: 'header_back'
+          %p.header_pageTitle ronstagram
+        - if user_signed_in?
+          .dropdown
+            = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+            .dropdown-content
+              %a{:href => "#"} プロフィール
+              = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+        - else
+          = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|

@@ -1,14 +1,14 @@
-= image_tag 'Rectangle.png', class: 'header_ground'
+= image_tag 'Rectangle.png', class: 'header_background'
 .container
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
     .field
       = f.label :password
       %br/
-      = f.password_field :password, autocomplete: "current-password"
+      = f.password_field :password, autocomplete: "current-password", class: 'text'
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me

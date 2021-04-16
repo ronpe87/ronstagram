@@ -10,3 +10,16 @@ textarea {
   resize: vertical;
   border: 1px solid #EBEBEB;
 }
+
+input, select {
+  &.text {
+    width: 100%;
+    margin: 8px 0px;
+    padding: 16px 24px;
+    background-color: $base-bg-color;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #9E9e9E;
+    border-left: none;
+  }
+}
