@@ -1,12 +1,65 @@
 .photo {
+  position: relative;
+  height: 360px;
   &_pics {
-    height: 180px;
+    position: relative;
+    margin-top: 11px;
+    height: 225px;
     overflow: hidden;
-
-    img {
-      top: 50%;
-      left: 50%;
-      width: 100%;
+    &_3 {
+      &_first {
+        img {
+          position: absolute;
+          left: 0px;
+          width: 59%;
+        }
+      }
+      &_second {
+        img {
+          position: absolute;
+          right: 0px;
+          width: 40%;
+          height: 50%;
+        }
+      }
+      &_third {
+        img {
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          width: 40%;
+          height: 49%;
+        }
+      }
     }
+
+    &_2 {
+      &_first {
+        img {
+          position: absolute;
+          left: 0px;
+          width: 50%;
+        }
+      }
+      &_second {
+        img {
+          position: absolute;
+          right: 0px;
+          width: 49%;
+        }
+      }
+    }
+
+    &_1 {
+      &_first {
+      }
+    }
+  }
+
+  &_user {
+  }
+  &_content {
+    position: absolute;
+    bottom: 10px;
   }
 }
