@@ -1,7 +1,20 @@
+@import 'variables';
+
 .header {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+  background-color: $base-bg-color;
+  padding: 10px 16px;
+  width: 100%;
+  top: 0px;
+
+  &_loginBtn {
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 12px 16px;
+  }
 
   &_logos {
     min-width: 0;
@@ -9,7 +22,40 @@
 
     img {
       cursor: pointer;
-      
     }
   }
+
+  &_pageTitle {
+    color: black;
+  }
+
+  &_avatar {
+    display: flex;
+    border-radius: 100%;
+    margin: 0 10px;
+    height: 40px;
+    width: 40px;
+  }
+
+  &_back {
+    margin: 0 10px;
+    width: 40px;
+    height: 30px;
+    background-color: #fff;
+  }
+
+  &_background {
+    width: 375px;
+    height: 298px;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.camera {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
 }

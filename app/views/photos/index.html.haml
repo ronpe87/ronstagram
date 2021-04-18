@@ -2,14 +2,27 @@
   - @photos.each do |photo|
     = link_to photo_path(photo) do
       .photo
-        - if photo.pics.attached?
-          .photo_pics
-            = image_tag photo.pics[0]
+        %p.photo_user= photo.user.username
+        %p.photo_created= photo.display_created_at
+        .photo_pics
+          - if photo.pics.first && photo.pics.second && photo.pics.third
+            .photo_pics_3
+              .photo_pics_3_first
+                = image_tag photo.pics.first
+              .photo_pics_3_second
+                = image_tag photo.pics.second
+              .photo_pics_3_third
+                = image_tag photo.pics.third
+          - elsif photo.pics.first && photo.pics.second
+            .photo_pics_2
+              .photo_pics_2_first
+                = image_tag photo.pics.first
+              .photo_pics_2_second
+                = image_tag photo.pics.second
+          - else photo.pics.first
+            .photo_pics_1
+              .photo_pics_1_first
+                = image_tag photo.pics.first
         .photo_content
-          %p= photo.content
-          %p= photo.user.username
-          %p= photo.display_created_at
           %span= photo.comment_count
-= link_to new_photo_path do
-  .float_btn
-    %i.fa.fa-plus
+          %p.photo_detail= photo.content
