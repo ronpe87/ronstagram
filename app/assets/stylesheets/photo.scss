@@ -1,9 +1,7 @@
 .photo {
-  height: 360px;
+  height: 100%;
   margin-top: 40px;
-
   &_pics {
-    margin-top: 0px;
     overflow: hidden;
 
     &_3 {
@@ -82,4 +80,35 @@
 
     bottom: 10px;
   }
+}
+.username {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #414040;
+}
+
+.comm {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #9B9B9B;
+}
+
+.photo_detail {
+  margin-bottom: 30px;
+}
+
+.photo_detail_actions {
+  margin-left: 300px;
+  margin-top: -45px;
+}
+
+.twitter {
+  margin-left: 240px;
+  margin-top: -25px;
 }

@@ -1,21 +1,44 @@
-.photo
-  - if @photo.pics.attached?
-    .photo_pics
-      = image_tag @photo.pics[0]
-  %p= @photo.content
-  %p= @photo.user.username
-  %p= @photo.display_created_at
-  .photo_detail_actions
-    .dropdown
-      = image_tag 'actions.svg', class: 'dropbtn'
-      .dropdown-content.mini
-        = link_to '編集する', edit_photo_path(@photo)
-        = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
 .container
-  = link_to photo_comments_path(@photo) do
-    .btn-secondary
-      コメント一覧
+  .photo
+    %p.photo_user= @photo.user.username
+    %p.photo_created= @photo.display_created_at
+    .photo_pics
+      - if @photo.pics.first && @photo.pics.second && @photo.pics.third
+        .photo_pics_3
+          .photo_pics_3_first
+            = image_tag @photo.pics.first
+          .photo_pics_3_second
+            = image_tag @photo.pics.second
+          .photo_pics_3_third
+            = image_tag @photo.pics.third
+      - elsif @photo.pics.first && @photo.pics.second
+        .photo_pics_2
+          .photo_pics_2_first
+            = image_tag @photo.pics.first
+          .photo_pics_2_second
+            = image_tag @photo.pics.second
+      - else @photo.pics.first
+        .photo_pics_1
+          .photo_pics_1_first
+            = image_tag @photo.pics.first
+    .photo_detail
+      = image_tag 'Vector.png', class: 'vector'
+      %span= @photo.comment_count
+      %p= @photo.content
+      .photo_detail_actions
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            = link_to '編集する', edit_photo_path(@photo)
+            = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+      .twitter
+        = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
+  .comment
+    %h2 コメント一覧
+    - @comments.each do |comment|
+      .photo_comment
+        %p.username= comment.user.username
+        %p.comm= comment.content
   = link_to new_photo_comment_path(@photo) do
-    .btn-secondary
-      コメントを追加
-= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
+    .btn_secondary
+      = image_tag 'Vector.png', class: 'vector'

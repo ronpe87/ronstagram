@@ -1,15 +1,16 @@
 .container
-  %ul
-    - @photo.errors.full_messages.each do |message|
-      %li= message
+  .form
+    %ul
+      - @photo.errors.full_messages.each do |message|
+        %li= message
 
-  = form_with(model: @photo, local: true) do |f|
-    %div
-      = f.label :pics, 'フォト'
-    %div
-      = f.file_field :pics, multiple: true
-    %div
-      = f.label :content, '内容'
-    %div
-      = f.text_area :content
-    = f.submit '保存', class: 'btn-primary'
+    = form_with(model: @photo, local: true) do |f|
+      %div
+        = f.label :pics, 'フォト'
+      %div
+        = f.file_field :pics, multiple: true
+      %div
+        = f.label :content, '内容'
+      %div
+        = f.text_area :content
+      = f.submit '保存', class: 'btn-primary'

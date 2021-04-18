@@ -8,6 +8,7 @@
   background-color: $base-bg-color;
   padding: 10px 16px;
   width: 100%;
+  top: 0px;
 
   &_loginBtn {
     border-radius: 8px;
@@ -37,6 +38,7 @@
   }
 
   &_back {
+    margin: 0 10px;
     width: 40px;
     height: 30px;
     background-color: #fff;
