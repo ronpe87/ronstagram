@@ -24,7 +24,6 @@
     .photo_detail
       = image_tag 'Vector.png', class: 'vector'
       %span= @photo.comment_count
-      %p= @photo.content
       .photo_detail_actions
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
@@ -33,6 +32,8 @@
             = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
       .twitter
         = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
+      .photo_content
+        %p= @photo.content
   .comment
     %h2 コメント一覧
     - @comments.each do |comment|

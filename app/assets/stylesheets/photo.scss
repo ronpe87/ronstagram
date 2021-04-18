@@ -77,8 +77,12 @@
   &_user {
   }
   &_content {
+    word-break : break-all;
+    overflow: hidden;
+  }
 
-    bottom: 10px;
+  &_comment {
+    width: 100%;
   }
 }
 .username {
@@ -97,18 +101,21 @@
   font-size: 14px;
   line-height: 20px;
   color: #9B9B9B;
+  word-break : break-all;
+  overflow: hidden;
 }
 
 .photo_detail {
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .photo_detail_actions {
   margin-left: 300px;
-  margin-top: -45px;
+  margin-top: -23px;
 }
 
 .twitter {
   margin-left: 240px;
-  margin-top: -25px;
+  margin-top: -23px;
 }
