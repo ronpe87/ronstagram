@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :photos do
     resources :comments, only: [:index, :new, :create]
+    resource :like, only: [:show, :create, :destroy]
   end
 
   resource :timeline, only: [:show]

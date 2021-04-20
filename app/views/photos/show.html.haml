@@ -1,5 +1,5 @@
 .container
-  .photo
+  .photo#photo-show{data: {photo_id: @photo.id}}
     %p.photo_user= @photo.user.username
     %p.photo_created= @photo.display_created_at
     .photo_pics
@@ -24,6 +24,7 @@
     .photo_detail
       = image_tag 'Vector.png', class: 'vector'
       %span= @photo.comment_count
+      %span= @photo.like_count
       .photo_detail_actions
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
@@ -34,6 +35,11 @@
         = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
       .photo_content
         %p= @photo.content
+      - if user_signed_in?
+        .photo_heart.hidden.active-heart
+          = image_tag 'heart-active.svg'
+        .photo_heart.hidden.inactive-heart
+          = image_tag 'heart.svg'
   .comment
     %h2 コメント一覧
     - @comments.each do |comment|
@@ -43,3 +49,5 @@
   = link_to new_photo_comment_path(@photo) do
     .btn_secondary
       = image_tag 'Vector.png', class: 'vector'
+
+= javascript_pack_tag 'photo'
