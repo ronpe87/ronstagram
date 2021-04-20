@@ -24,6 +24,7 @@
     .photo_detail
       = image_tag 'Vector.png', class: 'vector'
       %span= @photo.comment_count
+      %span= @photo.like_count
       .photo_detail_actions
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
@@ -34,6 +35,15 @@
         = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
       .photo_content
         %p= @photo.content
+      - if user_signed_in?
+        - if current_user.has_liked?(@photo)
+          .photo_heart
+            = link_to photo_like_path(@photo), data: { method: 'delete' } do
+              = image_tag 'heart-active.svg'
+        - else
+          .photo_heart
+            = link_to photo_like_path(@photo), data: { method: 'post' } do
+              = image_tag 'heart.svg'
   .comment
     %h2 コメント一覧
     - @comments.each do |comment|
