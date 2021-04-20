@@ -1,10 +1,17 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    photo = Photo.find(params[:photo_id])
+    like_status = current_user.has_liked?(photo)
+    render json: { hasLiked: like_status }
+  end
+
   def create
     photo = Photo.find(params[:photo_id])
     photo.likes.create!(user_id: current_user.id)
-    redirect_to photo_path(photo)
+
+    render json: { status: 'ok' }
   end
 
   def destroy
@@ -12,6 +19,6 @@ class LikesController < ApplicationController
     like = photo.likes.find_by!(user_id: current_user.id)
 
     like.destroy!
-    redirect_to photo_path(photo)
+    render json: { status: 'ok' }
   end
 end

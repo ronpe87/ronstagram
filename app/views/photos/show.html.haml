@@ -1,5 +1,5 @@
 .container
-  .photo
+  .photo#photo-show{data: {photo_id: @photo.id}}
     %p.photo_user= @photo.user.username
     %p.photo_created= @photo.display_created_at
     .photo_pics
@@ -36,14 +36,10 @@
       .photo_content
         %p= @photo.content
       - if user_signed_in?
-        - if current_user.has_liked?(@photo)
-          .photo_heart
-            = link_to photo_like_path(@photo), data: { method: 'delete' } do
-              = image_tag 'heart-active.svg'
-        - else
-          .photo_heart
-            = link_to photo_like_path(@photo), data: { method: 'post' } do
-              = image_tag 'heart.svg'
+        .photo_heart.hidden.active-heart
+          = image_tag 'heart-active.svg'
+        .photo_heart.hidden.inactive-heart
+          = image_tag 'heart.svg'
   .comment
     %h2 コメント一覧
     - @comments.each do |comment|
@@ -53,3 +49,5 @@
   = link_to new_photo_comment_path(@photo) do
     .btn_secondary
       = image_tag 'Vector.png', class: 'vector'
+
+= javascript_pack_tag 'photo'
