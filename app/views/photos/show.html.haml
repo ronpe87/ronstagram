@@ -42,12 +42,12 @@
           = image_tag 'heart.svg'
   .comment
     %h2 コメント一覧
-    - @comments.each do |comment|
-      .photo_comment
-        %p.username= comment.user.username
-        %p.comm= comment.content
-  = link_to new_photo_comment_path(@photo) do
-    .btn_secondary
+    .comments-container
+  .btn_secondary.show-comment-form
+    = image_tag 'Vector.png', class: 'vector'
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .btn_secondary.add-comment-button
       = image_tag 'Vector.png', class: 'vector'
 
 = javascript_pack_tag 'photo'
