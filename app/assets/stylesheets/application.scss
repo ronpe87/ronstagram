@@ -6,6 +6,7 @@
 @import 'header';
 @import 'common';
 @import 'comment';
+@import 'profile';
 
 html {
   word-spacing: 1px;
@@ -39,7 +40,7 @@ body {
 .container {
   padding: 16px 16px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .hidden {
