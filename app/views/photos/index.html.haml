@@ -1,7 +1,7 @@
 .container
   - @photos.each do |photo|
     = link_to photo_path(photo) do
-      .photo
+      .photo#photo-show{data: {photo_id: photo.id}}
         %p.photo_user= photo.user.username
         %p.photo_created= photo.display_created_at
         .photo_pics
@@ -26,4 +26,17 @@
         .photo_content
           %span= photo.comment_count
           %span= photo.like_count
+          - if user_signed_in?
+            .photo_heart.hidden.active-heart
+              = image_tag 'heart-active.svg'
+            .photo_heart.hidden.inactive-heart
+              = image_tag 'heart.svg'
           %p.photo_detail= photo.content
+        .photo_detail_actions
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            = link_to '編集する', edit_photo_path(photo)
+            = link_to '削除する', photo_path(photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+        .twitter
+          = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'

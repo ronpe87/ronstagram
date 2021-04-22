@@ -1,53 +1,12 @@
+- content_for(:title) { 'Comment' }
 .container
-  .photo#photo-show{data: {photo_id: @photo.id}}
-    %p.photo_user= @photo.user.username
-    %p.photo_created= @photo.display_created_at
-    .photo_pics
-      - if @photo.pics.first && @photo.pics.second && @photo.pics.third
-        .photo_pics_3
-          .photo_pics_3_first
-            = image_tag @photo.pics.first
-          .photo_pics_3_second
-            = image_tag @photo.pics.second
-          .photo_pics_3_third
-            = image_tag @photo.pics.third
-      - elsif @photo.pics.first && @photo.pics.second
-        .photo_pics_2
-          .photo_pics_2_first
-            = image_tag @photo.pics.first
-          .photo_pics_2_second
-            = image_tag @photo.pics.second
-      - else @photo.pics.first
-        .photo_pics_1
-          .photo_pics_1_first
-            = image_tag @photo.pics.first
-    .photo_detail
-      = image_tag 'Vector.png', class: 'vector'
-      %span= @photo.comment_count
-      %span= @photo.like_count
-      .photo_detail_actions
-        .dropdown
-          = image_tag 'actions.svg', class: 'dropbtn'
-          .dropdown-content.mini
-            = link_to '編集する', edit_photo_path(@photo)
-            = link_to '削除する', photo_path(@photo), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
-      .twitter
-        = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'
-      .photo_content
-        %p= @photo.content
-      - if user_signed_in?
-        .photo_heart.hidden.active-heart
-          = image_tag 'heart-active.svg'
-        .photo_heart.hidden.inactive-heart
-          = image_tag 'heart.svg'
-  .comment
-    %h2 コメント一覧
-    - @comments.each do |comment|
-      .photo_comment
-        %p.username= comment.user.username
-        %p.comm= comment.content
-  = link_to new_photo_comment_path(@photo) do
-    .btn_secondary
+  .comment#photo-show{data: {photo_id: @photo.id}}
+  .comments-container
+  .btn_secondary.show-comment-form
+    = image_tag 'Vector.png', class: 'vector'
+  .comment-text-area.hidden
+    = text_area_tag :comment_content, '', class: 'sm'
+    .btn_secondary.add-comment-button
       = image_tag 'Vector.png', class: 'vector'
 
 = javascript_pack_tag 'photo'
