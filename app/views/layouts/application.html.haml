@@ -15,10 +15,11 @@
         .header_logos
           - if !current_page?(root_path)
             = link_to 'javascript:history.back()' do
-              = image_tag 'back.png', class: 'header_back'
+              = image_tag 'back.png', class: 'header_left'
           - if current_page?(root_path)
             = link_to new_photo_path do
-              = image_tag 'camera.png', class: 'camera'
+              = image_tag 'camera.png', class: 'header_left'
+        %title.header_title= content_for?(:title) ? yield(:title) : "Ronstagram"
         - if user_signed_in?
           .dropdown
             = image_tag 'default-avatar.png', class: 'header_avatar'
