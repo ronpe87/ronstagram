@@ -23,7 +23,7 @@
         .header_right
           - if user_signed_in?
             .dropdown
-              = image_tag 'default-avatar.png'
+              = image_tag current_user.avatar_image
               .dropdown-content
                 = link_to 'プロフィール', profile_path
                 = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
