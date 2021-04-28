@@ -12,22 +12,23 @@
   %body
     - if !current_page?(new_user_session_path) && !current_page?(new_user_registration_path)
       %header.header
-        .header_logos
+        .header_left
           - if !current_page?(root_path)
             = link_to 'javascript:history.back()' do
-              = image_tag 'back.png', class: 'header_left'
+              = image_tag 'back.png'
           - if current_page?(root_path)
             = link_to new_photo_path do
-              = image_tag 'camera.png', class: 'header_left'
-        %title.header_title= content_for?(:title) ? yield(:title) : "Ronstagram"
-        - if user_signed_in?
-          .dropdown
-            = image_tag 'default-avatar.png', class: 'header_avatar'
-            .dropdown-content
-              = link_to 'プロフィール', profile_path
-              = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-        - else
-          = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
+              = image_tag 'camera.png'
+        .header_title= content_for?(:title) ? yield(:title) : "Ronstagram"
+        .header_right
+          - if user_signed_in?
+            .dropdown
+              = image_tag current_user.avatar_image
+              .dropdown-content
+                = link_to 'プロフィール', profile_path
+                = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+          - else
+            = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|

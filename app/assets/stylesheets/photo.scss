@@ -1,6 +1,33 @@
 .photo {
   height: 100%;
-  margin-top: 40px;
+  margin-top: 10px;
+  &_top {
+    height: 50px;
+
+    &_avatar {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &_user {
+      margin-left: 50px;
+      margin-top: -45px;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    &_created {
+      margin-left: 50px;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+    }
+  }
+
   &_pics {
     overflow: hidden;
 
@@ -74,17 +101,55 @@
     }
   }
 
-  &_user {
-  }
-  &_content {
-    word-break : break-all;
-    overflow: hidden;
-  }
+  &_bottom {
+    margin-top: 10px;
 
-  &_comment {
-    width: 100%;
+    &_heart {
+      display: inline-block;
+
+      img {
+        height: 20px;
+      }
+
+      &_count {
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+
+    &_comment {
+      display: inline-block;
+
+      img {
+        height: 20px;
+      }
+
+      &_count {
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+
+    &_detail {
+      width: 100%;
+      word-break : break-all;
+      overflow: hidden;
+    }
+
+    .twitter {
+      display: inline-block;
+      img {
+        height: 20px;
+      }
+    }
   }
 }
+
+.action {
+  text-align: right;
+  margin-top: -30px;
+}
+
 .username {
   font-family: Poppins;
   font-style: normal;
@@ -94,28 +159,4 @@
   color: #414040;
 }
 
-.comm {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
-  color: #9B9B9B;
-  word-break : break-all;
-  overflow: hidden;
-}
 
-.photo_detail {
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.photo_detail_actions {
-  margin-left: 300px;
-  margin-top: -23px;
-}
-
-.twitter {
-  margin-left: 240px;
-  margin-top: -23px;
-}
