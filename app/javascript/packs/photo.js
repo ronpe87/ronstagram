@@ -21,7 +21,8 @@ const handleCommentForm = () => {
 
 const appendNewComment = (comment) => {
   $('.comments-container').append(
-    `<div class="comments_name"><p>${comment.user.username}</p></div>
+    `<div class="comments_user"><img class='comments_user_avatar' src="${comment.user.avatar_comment_image}"></div>
+    <div class="comments_name"><p>${comment.user.username}</p></div>
     <div class="photo-comment"><p>${comment.content}</p></div>`
   )
 }

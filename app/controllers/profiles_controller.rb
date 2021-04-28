@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
     end
   end
 
+  private
   def profile_params
     params.fetch(:profile, {}).permit( #fetch=profileパラメータがない時は {} がデフォルト値
       :avatar
