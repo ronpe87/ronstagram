@@ -3,7 +3,8 @@
     .photo#photo-show{data: {photo_id: photo.id}}
       .photo_top
         .photo_top_avatar
-          = image_tag photo.user.avatar_image
+          = link_to account_path(photo.user) do
+            = image_tag photo.user.avatar_image
         %p.photo_top_user= photo.user.username
         %p.photo_top_created= photo.display_created_at
       .photo_pics

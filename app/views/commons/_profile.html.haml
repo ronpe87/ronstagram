@@ -1,0 +1,18 @@
+- content_for(:title) { current_user.username }
+.container
+  .profilePage
+    .profilePage_user
+      .profilePage_user_image.show-profile-form
+        = image_tag user.avatar_image
+      .profilePage_user_actionButton
+        - if user == current_user
+          .profilePage_user_image_change
+            = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+              .profile-file-area
+                = f.file_field :avatar
+              = f.submit '保存', class: 'btn-primary'
+        - else
+          - if current_user&.has_followed?(user)
+            = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}
+          - else
+            = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
