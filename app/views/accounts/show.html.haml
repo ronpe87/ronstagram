@@ -1,1 +1,5 @@
-= render 'commons/profile', user: @user
+.container#account-show{data: {account_id: @user.id}}
+  = render 'commons/profile', user: @user
+  .profilePage_following_count
+    %p= @user.followings_count
+    %p= @user.followers_count
