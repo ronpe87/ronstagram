@@ -23,7 +23,7 @@ class User < ApplicationRecord
       'default-avatar.png'
     end
   end
-
+  #フォローするときのメソッド
   def follow!(user)
     if user.is_a?(User)
       used_id = user.id
@@ -33,13 +33,13 @@ class User < ApplicationRecord
 
     following_relationships.create!(following_id: user_id)
   end
-
+  #フォローを外すときのメソッド
   def unfollow!(user)
     user_id = get_user_id(user)
     relation = following_relationships.find_by!(following_id: user_id)
     relation.destroy!
   end
-
+  #フォローしてるか確認するメソッド
   def has_followed?(user)
     following_relationships.exists?(following_id: user.id)
   end

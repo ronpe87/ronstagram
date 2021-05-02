@@ -4,7 +4,7 @@
     .profilePage_user
       .profilePage_user_image.show-profile-form
         = image_tag user.avatar_image
-      .profilePage_user_actionButton
+      .profilePage_user_actionButton#follow-form
         - if user == current_user
           .profilePage_user_image_change
             = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
@@ -16,3 +16,7 @@
             = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}
           - else
             = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
+  .profilePage_following_count
+    = link_to account_followings_path(user) do
+      %p= user.followings_count
+    %p= user.followers_count
