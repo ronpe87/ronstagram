@@ -1,3 +1,4 @@
+- content_for(:title) { 'Follow-List' }
 .container
   - @followings.each do |following|
     = render 'commons/follow', follow: following
