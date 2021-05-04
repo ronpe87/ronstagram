@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     resource :like, only: [:show, :create, :destroy]
   end
 
+  resources :accounts, only: [:show] do
+    resources :followings, only: [:index]
+    resources :follows, only: [:index, :show, :create]
+    resources :unfollows, only: [:create]
+  end
+
   resource :timeline, only: [:show]
 
   resource :profile, only: [:show, :update]
