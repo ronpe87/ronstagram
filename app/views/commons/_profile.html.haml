@@ -16,8 +16,8 @@
             %p Following
           .profilePage_followbtn_unfollowing.hidden.follow
             %p Follow
-  .profilePage_following_count
+  .profilePage_following_count#follower_count
     = link_to account_followings_path(user) do
       %p= user.followings_count
-    = link_to account_follows_path(user) do
-      %p= user.followers_count
+  = link_to account_follows_path(user) do
+    %p= user.followers_count
