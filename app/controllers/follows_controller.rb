@@ -10,12 +10,16 @@ class FollowsController < ApplicationController
     user = User.find(params[:account_id])
     @followers = user.followers
     @followings = user.followings
-    render json: follow
+    follow_status = current_user.has_followed?(user)
+
+    render json: { hasFollow: follow_status }
   end
 
   def create
     #フォローするためのメソッド
     current_user.follow!(params[:account_id])
     redirect_to account_path(params[:account_id])
+
+    render json: { status: 'ok' }
   end
 end
