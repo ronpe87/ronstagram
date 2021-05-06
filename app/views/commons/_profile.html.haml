@@ -11,6 +11,8 @@
               .profile-file-area
                 = f.file_field :avatar
               = f.submit '保存', class: 'btn-primary'
+            = link_to timeline_path(user) do
+              %p= 'timeline'
         - else
           .profilePage_followbtn_following.hidden.following
             %p Following
@@ -21,3 +23,4 @@
       %p= user.followings_count
   = link_to account_follows_path(user) do
     %p= user.followers_count
+
