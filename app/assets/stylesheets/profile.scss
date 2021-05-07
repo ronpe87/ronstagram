@@ -3,17 +3,46 @@ $image_size: 56px;
 .profilePage {
   margin-top: 24px;
 
-  &_user {
-    display: flex;
-    &_image {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 140px;
-      img {
-        width: $image_size;
-        height: $image_size;
-      }
+  &_image {
+    text-align: center;
+    img {
+
+      width: $image_size;
+      height: $image_size;
     }
   }
+
+  &_actionButton {
+    margin-top: 50px;
+  }
+
+  &_count {
+    display: flex;
+    margin-top: 40px;
+
+    &_photos {
+      text-align: center;
+      margin-left: 40px;
+    }
+
+    &_following {
+      text-align: center;
+      margin: auto;
+    }
+
+    &_follower {
+      text-align: center;
+      margin-right: 40px;
+    }
+  }
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333A42;
+}
+
+.count_title {
+  font-size: 14px;
 }

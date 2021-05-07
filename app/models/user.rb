@@ -48,6 +48,11 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
+
+  def photos_count
+    photos.count
+  end
+
   def followings_count
     followings.count
   end
