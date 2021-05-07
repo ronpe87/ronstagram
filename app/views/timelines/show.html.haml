@@ -1,3 +1,4 @@
+- content_for(:title) { 'TimeLine' }
 .container
   - @ranks.each do |photo|
     .photo#photo-show{data: {photo_id: photo.id}}
