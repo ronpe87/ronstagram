@@ -4,13 +4,13 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-const handleHeartDisplay = (hasLiked) => {
-  if (hasLiked) {
-    $('.active-heart').removeClass('hidden')
-  } else {
-    $('.inactive-heart').removeClass('hidden')
-  }
-}
+// const handleHeartDisplay = (hasLiked) => {
+//   if (hasLiked) {
+//     $('.active-heart').removeClass('hidden')
+//   } else {
+//     $('.inactive-heart').removeClass('hidden')
+//   }
+// }
 
 const handleCommentForm = () => {
   $('.show-comment-form').on('click', () => {
@@ -36,18 +36,18 @@ const appendNewComment = (comment) => {
 }
 
 document.addEventListener('turbolinks:load', () => {
-  const dataset = $('#photo-show').data()
-  const photoId = dataset.photoId
+  // var dataset = $('#photo-show').data()
+  // var photoId = dataset.photoId
 
-  axios.get(`/photos/${photoId}/comments`)
-    .then((response) => {
-      const comments = response.data
-      comments.forEach((comment) => {
-        appendNewComment(comment)
-      })
-    })
+  // axios.get(`/photos/${photoId}/comments`)
+  //   .then((response) => {
+  //     const comments = response.data
+  //     comments.forEach((comment) => {
+  //       appendNewComment(comment)
+  //     })
+  //   })
 
-  handleCommentForm()
+  // handleCommentForm()
 
   $('.add-comment-button').on('click', () => {
     const content = $('#comment_content').val()
@@ -65,18 +65,20 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  axios.get(`/photos/${photoId}/like`)
-    .then((response) => {
-      const hasLiked = response.data.hasLiked
-      handleHeartDisplay(hasLiked)
-    })
+  // axios.get(`/photos/${photoId}/like`)
+  //   .then((response) => {
+  //     const hasLiked = response.data.hasLiked
+  //     handleHeartDisplay(hasLiked)
+  //   })
 
-  $('.inactive-heart').on('click', () => {
-    axios.post(`/photos/${photoId}/like`)
+  $('.inactive-heart').on('click', (e) => {
+    e.preventDefault();
+    const id = $(e.currentTarget).attr('id')
+    axios.post(`/photos/${id}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
-          $('.active-heart').removeClass('hidden')
-          $('.inactive-heart').addClass('hidden')
+          $(`.active-heart.${id}`).removeClass('hidden')
+          $(`.inactive-heart.${id}`).addClass('hidden')
         }
       })
       .catch((e) => {
@@ -85,12 +87,14 @@ document.addEventListener('turbolinks:load', () => {
       })
   })
 
-  $('.active-heart').on('click', () => {
-    axios.delete(`/photos/${photoId}/like`)
+  $('.active-heart').on('click', (e) => {
+    e.preventDefault();
+    const id = $(e.currentTarget).attr('id')
+    axios.delete(`/photos/${id}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
-          $('.active-heart').addClass('hidden')
-          $('.inactive-heart').removeClass('hidden')
+          $(`.active-heart.${id}`).addClass('hidden')
+          $(`.inactive-heart.${id}`).removeClass('hidden')
         }
       })
       .catch((e) => {
