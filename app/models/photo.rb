@@ -5,7 +5,7 @@ class Photo < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :content, presence: true
-  validates :content, length: { minimum: 1, maximum: 50 }
+  validates :content, length: { minimum: 2, maximum: 50 }
 
   def comment_count
     comments.count
