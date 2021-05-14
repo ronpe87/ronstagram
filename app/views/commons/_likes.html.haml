@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if current_user.has_liked?(photo)
+    .photo_bottom_heart.active-heart{class: "#{photo.id}", id: "#{photo.id}"}
+      = image_tag 'heart-active.svg'
+      %span.photo_bottom_heart_count= photo.like_count
+    .photo_bottom_heart.hidden.inactive-heart{class: "#{photo.id}", id: "#{photo.id}"}
+      = image_tag 'heart.svg'
+      %span.photo_bottom_heart_count= photo.like_count
+  - else
+    .photo_bottom_heart.inactive-heart{class: "#{photo.id}", id: "#{photo.id}"}
+      = image_tag 'heart.svg'
+      %span.photo_bottom_heart_count= photo.like_count
+    .photo_bottom_heart.hidden.active-heart{class: "#{photo.id}", id: "#{photo.id}"}
+      = image_tag 'heart-active.svg'
+      %span.photo_bottom_heart_count= photo.like_count
