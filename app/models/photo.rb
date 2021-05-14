@@ -6,6 +6,17 @@ class Photo < ApplicationRecord
 
   validates :content, presence: true
   validates :content, length: { minimum: 2, maximum: 50 }
+  validate :pics_limit
+
+  def pics_limit
+    if pics.attached?
+      if pics.count >= 4
+        errors.add(:pics, 'は3つまで指定できます')
+      end
+    else
+      errors.add(:pics, 'ファイルを添付してください')
+    end
+  end
 
   def comment_count
     comments.count
