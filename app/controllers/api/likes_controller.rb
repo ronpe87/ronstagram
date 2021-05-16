@@ -1,11 +1,11 @@
-class LikesController < ApplicationController
+class Api::LikesController < Api::ApplicationController
   before_action :authenticate_user!
 
-  # def show
-  #   photo = Photo.find(params[:photo_id])
-  #   like_status = current_user.has_liked?(photo)
-  #   render json: { hasLiked: like_status }
-  # end
+  def show
+    photo = Photo.find(params[:photo_id])
+    like_status = current_user.has_liked?(photo)
+    render json: { hasLiked: like_status }
+  end
 
   def create
     photo = Photo.find(params[:photo_id])

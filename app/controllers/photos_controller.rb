@@ -10,6 +10,9 @@ class PhotosController < ApplicationController
     @photo = current_user.photos.build
   end
 
+  def like
+  end
+
   def create
     @photo = current_user.photos.build(photo_params)
     if @photo.save

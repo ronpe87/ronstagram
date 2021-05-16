@@ -14,7 +14,7 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 document.addEventListener('turbolinks:load', () => {
 
-  // axios.get(`/photos/${photoId}/like`)
+  // axios.get(`/api/photos/${photoId}/like`)
   //   .then((response) => {
   //     const hasLiked = response.data.hasLiked
   //     handleHeartDisplay(hasLiked)
@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', () => {
   $('.inactive-heart').on('click', (e) => {
     e.preventDefault();// このclickイベントに関して「preventDefault」する。デフォルトの動作をキャンセルする。
     const id = $(e.currentTarget).attr('id')
-    axios.post(`/photos/${id}/like`)
+    axios.post(`/api/photos/${id}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`.active-heart.${id}`).removeClass('hidden')
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   $('.active-heart').on('click', (e) => {
     e.preventDefault();// このclickイベントに関して「preventDefault」する。デフォルトの動作をキャンセルする。
     const id = $(e.currentTarget).attr('id')
-    axios.delete(`/photos/${id}/like`)
+    axios.delete(`/api/photos/${id}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`.active-heart.${id}`).addClass('hidden')
