@@ -24,5 +24,12 @@ RSpec.describe 'Photos', type: :request do
         # model/photo.rbのlimitを消せば通る
       end
     end
+    context 'ログインしていない場合' do
+      it 'ログイン画面に遷移する' do
+        photo_params = attributes_for(:photo)
+        post photos_path({photo: photo_params})
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
