@@ -10,10 +10,13 @@ class PhotosController < ApplicationController
     @photo = current_user.photos.build
   end
 
+  def like
+  end
+
   def create
     @photo = current_user.photos.build(photo_params)
     if @photo.save
-      redirect_to photo_path(@photo), notice: '保存できた'
+      redirect_to root_path(@photo), notice: '保存できた'
     else
       flash.now[:error] = '保存に失敗しました'
       render :new
@@ -48,7 +51,7 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:content, pics: [])
   end
 
-  def set_photo
-    @photo = Photo.find(params[:id])
-  end
+  # def set_photo
+  #   @photo = Photo.find(params[:id])
+  # end
 end
