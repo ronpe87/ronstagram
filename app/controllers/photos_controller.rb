@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -24,6 +23,7 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @photo = Photo.find(params[:id])
   end
 
   def edit
