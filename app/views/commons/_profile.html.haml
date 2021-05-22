@@ -26,7 +26,7 @@
         = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
           .profile-file-area
             = f.file_field :avatar
-          = f.submit '保存', class: 'btn-primary'
+          = f.submit 'アバター画像を更新', class: 'btn-primary'
     - else
       .profilePage_followbtn_following.hidden.following
         %p Following

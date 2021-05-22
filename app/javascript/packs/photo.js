@@ -28,6 +28,13 @@ document.addEventListener('turbolinks:load', () => {
         if (response.data.status === 'ok') {
           $(`.active-heart.${id}`).removeClass('hidden')
           $(`.inactive-heart.${id}`).addClass('hidden')
+          const likeCount = response.data.likeCount
+          // like_countクラス内のspan要素の中身を空にする。
+          $(`.like_count.${id} > span`).html('')
+          // 現在いいねの数を表示する。
+          $(`.like_count.${id} > span`).append(
+            `${likeCount}`
+          )
         }
       })
       .catch((e) => {
@@ -44,6 +51,13 @@ document.addEventListener('turbolinks:load', () => {
         if (response.data.status === 'ok') {
           $(`.active-heart.${id}`).addClass('hidden')
           $(`.inactive-heart.${id}`).removeClass('hidden')
+          const likeCount = response.data.likeCount
+          // like_countクラス内のspan要素の中身を空にする。
+          $(`.like_count.${id} > span`).html('')
+          // 現在いいねの数を表示する。
+          $(`.like_count.${id} > span`).append(
+            `${likeCount}`
+          )
         }
       })
       .catch((e) => {
