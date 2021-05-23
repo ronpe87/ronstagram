@@ -2,6 +2,7 @@ class Apps::ProfilesController < Apps::ApplicationController
 
   def show
     @profile = current_user.profile
+    @current_user_photos = current_user.photos.all
   end
 
   def update

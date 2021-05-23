@@ -1,2 +1,6 @@
 .container
   = render 'commons/profile', user: current_user
+
+  - @current_user_photos.each do |photo|
+    .profile_pics
+      = render 'commons/pics', photo: photo
