@@ -1,3 +1,6 @@
 .container#account-show{data: {account_id: @user.id, user_id: current_user.id}}
   = render 'commons/profile', user: @user
+  - @photos.each do |photo|
+    .profile_pics
+      = render 'commons/pics', photo: photo
 = javascript_pack_tag 'follow'
