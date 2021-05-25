@@ -57,14 +57,6 @@ class User < ApplicationRecord
     photos.count
   end
 
-  def followings_count
-    followings.count
-  end
-
-  def followers_count
-    followers.count
-  end
-
   def has_liked?(photo)
     likes.exists?(photo_id: photo.id)
   end
