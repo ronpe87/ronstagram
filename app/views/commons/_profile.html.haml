@@ -1,19 +1,21 @@
 - content_for(:title) { user.username }
 .profilePage
   .profilePage_image
-    = image_tag user.avatar_image
-    .profilePage_actionButton#follow-form
+    = image_tag user.avatar_image, class: 'avatar-image'
+    .profilePage_actionButton
       - if user == current_user
-        .profilePage_image_change
-          = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
-            .profile-file-area
-              = f.file_field :avatar
+        .profilePage_image_change#profile-upload
+          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
+            = f.file_field :avatar
             = f.submit 'アバター画像を更新', class: 'btn-primary'
+            .avatar-cancel
+              %button Cancel
       - else
-        .profilePage_followbtn_following.hidden.following
-          %p UnFollow
-        .profilePage_followbtn_follow.hidden.follow
-          %p Follow
+        .profilePage_follow#follow-form
+          .profilePage_followbtn_following.hidden.following
+            %button UnFollow
+          .profilePage_followbtn_follow.hidden.follow
+            %button Follow
   .profilePage_count
     .profilePage_count_photos
       .count
@@ -32,3 +34,4 @@
           %p= user.followers.count
         .count_title
           %p= 'Follower'
+= javascript_pack_tag 'profile'
