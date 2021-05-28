@@ -7,9 +7,9 @@
       = image_tag 'comment.png'
     .comment_text_area.hidden
       = text_area_tag :comment_content, '', class: 'sm'
-      .comment_btn.add-comment-button
-        = image_tag 'cancel.png'
-        = image_tag 'comment.png', class: 'cancel'
+      .comment_btn
+        = image_tag 'cancel.png', class: 'comment_cancel'
+        = image_tag 'comment.png', class: 'add-comment-button'
     -# %p= 'Test'
 
 = javascript_pack_tag 'comment'

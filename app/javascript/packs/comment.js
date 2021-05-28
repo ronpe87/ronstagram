@@ -9,6 +9,11 @@ const handleCommentForm = () => {
     $('.show-comment-form').addClass('hidden')
     $('.comment_text_area').removeClass('hidden')
   })
+
+  $('.comment_cancel').on('click', () => {
+    $('.comment_text_area').addClass('hidden')
+    $('.show-comment-form').removeClass('hidden')
+  })
 }
 
 const appendNewComment = (comment) => {
