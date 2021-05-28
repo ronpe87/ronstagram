@@ -7,9 +7,11 @@
         .profilePage_image_change#profile-upload
           = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
             = f.file_field :avatar
-            = f.submit 'アバター画像を更新', class: 'btn-primary'
-            .avatar-cancel
-              %button Cancel
+            .avatar_update
+              .avatar-cancel
+                %button Cancel
+              .avatar_update_btn
+                = f.submit 'Update', class: 'btn-primary'
       - else
         .profilePage_follow#follow-form
           .profilePage_followbtn_following.hidden.following

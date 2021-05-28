@@ -6,11 +6,12 @@
 
     = form_with(model: @photo, local: true) do |f|
       %div
-        = f.label :pics, 'フォト'
+        = f.label :pics, 'Photo'
       %div
         = f.file_field :pics, multiple: true
       %div
-        = f.label :content, '内容'
+        = f.label :content, 'content'
       %div
         = f.text_area :content
-      = f.submit '保存', class: 'btn-primary'
+      .new_photo
+        = f.submit 'Post', class: 'btn-primary'

@@ -13,7 +13,7 @@ $image_size: 56px;
 
   &_count {
     display: flex;
-    margin: 20px 0px;
+    margin: 22px 0px;
 
     &_photos {
       text-align: center;
@@ -52,4 +52,18 @@ $image_size: 56px;
 
 #follow-form {
   margin-top: 10px;
+}
+
+.avatar_update {
+  display: flex;
+  position: relative;
+  &_btn {
+    position: absolute;
+    right: 0px;
+  }
+}
+
+.avatar-cancel {
+  position: absolute;
+  right: 64px;
 }

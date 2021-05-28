@@ -1,12 +1,13 @@
 @import './variables';
 
 .btn-primary {
-  background-color: blue;
+  background-color: black;
   border: none;
-  width: 100%;
+  border-radius: 2px;
+  height: 20px;
+  width: 60px;
   text-align: center;
   color: white;
-  padding: 16px 0;
   font-weight: bold;
 }
 
