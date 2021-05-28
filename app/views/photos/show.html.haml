@@ -2,12 +2,14 @@
 .container
   .comment#photo-show{data: {photo_id: @photo.id}}
   .comments-container
-  .btn_secondary.show-comment-form
-    = image_tag 'Vector.png', class: 'vector'
-  .comment-text-area.hidden
-    = text_area_tag :comment_content, '', class: 'sm'
-    .btn_secondary.add-comment-button
-      = image_tag 'Vector.png', class: 'vector'
-  -# %p= 'Test'
+  .comment_form
+    .comment_btn.show-comment-form
+      = image_tag 'comment.png'
+    .comment_text_area.hidden
+      = text_area_tag :comment_content, '', class: 'sm'
+      .comment_btn.add-comment-button
+        = image_tag 'cancel.png'
+        = image_tag 'comment.png', class: 'cancel'
+    -# %p= 'Test'
 
 = javascript_pack_tag 'comment'

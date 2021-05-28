@@ -1,12 +1,31 @@
 .comment {
   h2 {
     text-align: center;
+  }
 
+  &_btn {
+    float: right;
+    img {
+      height: 30px;
+    }
   }
 }
+
 .comments_user {
   img {
     height: 30px;
     width: 30px;
   }
+}
+
+.sm {
+  width: 100%;
+  min-height: 10px;
+}
+
+.comment_form {
+  position: fixed;
+  width: 90%;
+  bottom: 0px;
+  background-color: white;
 }

@@ -7,7 +7,7 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 const handleCommentForm = () => {
   $('.show-comment-form').on('click', () => {
     $('.show-comment-form').addClass('hidden')
-    $('.comment-text-area').removeClass('hidden')
+    $('.comment_text_area').removeClass('hidden')
   })
 }
 
@@ -20,7 +20,7 @@ const appendNewComment = (comment) => {
       <div class="comments_name">
         <p>${comment.user.username}</p>
       </div>
-      <div class="photo-comment">
+      <div class="photo_comment">
         <p>${comment.content}</p>
       </div>
     </div>`
