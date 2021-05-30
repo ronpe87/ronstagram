@@ -14,7 +14,7 @@
   &_loginBtn {
     border-radius: 8px;
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 16px;
   }
 
   &_left {
@@ -49,4 +49,8 @@
     left: 0px;
     top: 0px;
   }
+}
+
+.log_out {
+  text-align: center;
 }
