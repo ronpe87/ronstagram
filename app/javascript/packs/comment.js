@@ -32,7 +32,7 @@ const appendNewComment = (comment) => {
   )
 }
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#photo-show').data()
   const photoId = dataset.photoId
 

@@ -4,7 +4,7 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   $(function () {
     $('.avatar-image').on('click', function () {
       $('#profile-upload').fadeIn();
