@@ -9,12 +9,7 @@
     .photo_pics
       = render 'commons/pics', photo: photo
     .photo_bottom
-      - if user_signed_in?
-        .photo_bottom_heart.hidden.active-heart
-          = image_tag 'heart-active.svg'
-        .photo_bottom_heart.hidden.inactive-heart
-          = image_tag 'heart.svg'
-      %span.photo_bottom_heart_count= photo.like_count
+      = render 'commons/likes', photo: photo
       .photo_bottom_comment
         = link_to photo_path(photo) do
           = image_tag 'comment.png'
