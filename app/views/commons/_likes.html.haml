@@ -14,3 +14,7 @@
     .photo_bottom_heart.hidden.active-heart.like_count{class: "#{photo.id}", id: "#{photo.id}"}
       = image_tag 'heart-active.svg'
       %span.photo_bottom_heart_count= photo.like_count
+- else
+  .photo_bottom_heart
+    = image_tag 'heart.svg'
+  %span.photo_bottom_heart_count= photo.like_count
