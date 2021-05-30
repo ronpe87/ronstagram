@@ -7,7 +7,12 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 const handleCommentForm = () => {
   $('.show-comment-form').on('click', () => {
     $('.show-comment-form').addClass('hidden')
-    $('.comment-text-area').removeClass('hidden')
+    $('.comment_text_area').removeClass('hidden')
+  })
+
+  $('.comment_cancel').on('click', () => {
+    $('.comment_text_area').addClass('hidden')
+    $('.show-comment-form').removeClass('hidden')
   })
 }
 
@@ -20,14 +25,14 @@ const appendNewComment = (comment) => {
       <div class="comments_name">
         <p>${comment.user.username}</p>
       </div>
-      <div class="photo-comment">
+      <div class="photo_comment">
         <p>${comment.content}</p>
       </div>
     </div>`
   )
 }
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#photo-show').data()
   const photoId = dataset.photoId
 

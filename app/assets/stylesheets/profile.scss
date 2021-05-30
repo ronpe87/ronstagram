@@ -6,19 +6,14 @@ $image_size: 56px;
   &_image {
     text-align: center;
     img {
-
       width: $image_size;
       height: $image_size;
     }
   }
 
-  &_actionButton {
-    margin-top: 50px;
-  }
-
   &_count {
     display: flex;
-    margin-top: 40px;
+    margin: 22px 0px;
 
     &_photos {
       text-align: center;
@@ -49,4 +44,26 @@ $image_size: 56px;
 
 .profile_pics {
   margin: 12px 0px;
+}
+
+#profile-upload {
+  display: none;
+}
+
+#follow-form {
+  margin-top: 10px;
+}
+
+.avatar_update {
+  display: flex;
+  position: relative;
+  &_btn {
+    position: absolute;
+    right: 0px;
+  }
+}
+
+.avatar-cancel {
+  position: absolute;
+  right: 64px;
 }

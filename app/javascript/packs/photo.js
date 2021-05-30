@@ -12,7 +12,7 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 //   }
 // }
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // axios.get(`/api/photos/${photoId}/like`)
   //   .then((response) => {

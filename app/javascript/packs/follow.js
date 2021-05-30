@@ -12,7 +12,7 @@ const handleFollowDisplay = (hasFollow) => {
   }
 }
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#account-show').data()
   const accountId = dataset.accountId
   const userId = dataset.userId

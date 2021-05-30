@@ -17,7 +17,7 @@
       %span.photo_bottom_heart_count= photo.like_count
       .photo_bottom_comment
         = link_to photo_path(photo) do
-          = image_tag 'Vector.png', class: 'vector'
+          = image_tag 'comment.png'
       %span.photo_bottom_comment_count= photo.comment_count
       .twitter
         = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
