@@ -5,7 +5,7 @@
     .profilePage_actionButton
       - if user == current_user
         .profilePage_image_change#profile-upload
-          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', remote: true) do |f|
+          = form_with(model: @profile, url: profile_path, method: 'put', id: 'profile_form', local: true) do |f|
             = f.file_field :avatar
             .avatar_update
               .avatar-cancel
