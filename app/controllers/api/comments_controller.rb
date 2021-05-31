@@ -1,4 +1,5 @@
 class Api::CommentsController < Api::ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     photo = Photo.find(params[:photo_id])

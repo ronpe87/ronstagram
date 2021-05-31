@@ -25,15 +25,15 @@
             - if current_page?(profile_path)
               .timeline-btn
                 = link_to timeline_path do
-                  %p= 'timeline'
+                  %p= 'TL'
             - else
               .dropdown
                 = image_tag current_user.avatar_image
                 .dropdown-content
-                  = link_to 'プロフィール', profile_path
-                  = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+                  = link_to 'Profile', profile_path, class: 'log_out'
+                  = link_to 'Log_out', destroy_user_session_path, data: { method: 'delete' }, class: 'log_out'
           - else
-            = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
+            = link_to 'Log_in', new_user_session_path, class: 'header_loginBtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|
