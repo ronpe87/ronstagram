@@ -1,0 +1,19 @@
+{
+  "name": "ronstagram",
+  "description": "This is ronstagram",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/ronpe87/ronstagram",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
