@@ -241,6 +241,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    ruby_http_client (3.5.2)
     ruby_parser (3.15.1)
       sexp_processor (~> 4.9)
     rubyzip (2.3.0)
@@ -257,6 +258,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sendgrid-ruby (6.4.0)
+      ruby_http_client (~> 3.4)
     sexp_processor (4.15.2)
     sidekiq (6.2.1)
       connection_pool (>= 2.2.2)
@@ -330,6 +333,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-ruby
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
