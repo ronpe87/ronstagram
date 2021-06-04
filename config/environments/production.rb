@@ -62,7 +62,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "ronstagram_production"
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
+  config.action_mailer.delivery_method = :smtp # ← このまま
+  host = 'https://ronstagram-production.herokuapp.com/' # ← 変更する！！！！！
+  config.action_mailer.default_url_options = { host: host } # ← このまま
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net', # ← このまま
+    :port           => '587', # ← このまま
+    :authentication => :plain, # ← このまま
+    :user_name      => ENV['SENDGRID_USERNAME'], # ← このまま
+    :password       => ENV['SENDGRID_PASSWORD'], # ← このまま
+    :domain         => 'heroku.com', # ← このまま
+    :enable_starttls_auto => true # ← このまま
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
