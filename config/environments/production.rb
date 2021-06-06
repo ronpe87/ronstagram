@@ -62,8 +62,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "ronstagram_production"
 
-  config.action_mailer.perform_caching = true
-  config.action_mailer.delivery_method = :smtp # ← このまま
+  config.action_mailer.perform_caching = false
+
   host = 'https://ronstagram-production.herokuapp.com/' # ← 変更する！！！！！
   config.action_mailer.default_url_options = { host: host } # ← このまま
   ActionMailer::Base.smtp_settings = {
@@ -72,7 +72,7 @@ Rails.application.configure do
     :authentication => :plain, # ← このまま
     :user_name      => ENV['SENDGRID_USERNAME'], # ← このまま
     :password       => ENV['SENDGRID_PASSWORD'], # ← このまま
-    :domain         => 'heroku.com', # ← このまま
+    :domain => 'yourdomain.com', # ← このまま
     :enable_starttls_auto => true # ← このまま
   }
 
