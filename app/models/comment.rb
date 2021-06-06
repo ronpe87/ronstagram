@@ -5,11 +5,6 @@ class Comment < ApplicationRecord
 
   after_create :SendEmail.test_email
 
-  private
-  def send_email
-    CommentMailer.new_comment(photo).deliver_later
-  end
-
   require 'sendgrid-ruby'
   include SendGrid
 
