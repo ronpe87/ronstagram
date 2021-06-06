@@ -64,16 +64,17 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  host = 'https://ronstagram-production.herokuapp.com/' # ← 変更する！！！！！
-  config.action_mailer.default_url_options = { host: host } # ← このまま
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net', # ← このまま
-    :port           => '587', # ← このまま
-    :authentication => :plain, # ← このまま
-    :user_name      => ENV['SENDGRID_USERNAME'], # ← このまま
-    :password       => ENV['SENDGRID_PASSWORD'], # ← このまま
-    :domain => 'yourdomain.com', # ← このまま
-    :enable_starttls_auto => true # ← このまま
+  config.action_mailer.default_url_options = { host: 'https://ronstagram-production.herokuapp.com/' } #hoge.herokuapp.com
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings =
+  {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: "heroku.com",
+    address: "smtp.sendgrid.net",
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
