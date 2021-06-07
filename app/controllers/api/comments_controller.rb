@@ -10,12 +10,7 @@ class Api::CommentsController < Api::ApplicationController
   def create
     photo = Photo.find(params[:photo_id])
     @comment = photo.comments.build(comment_params.merge!(user_id: current_user.id))
-    if @comment.save
-      redirect_to blogs_path, notice: "ブログを作成しました！"
-      CommentMailer.new_comment(@photo).deliver
-    else
-      render 'new'
-    end
+    @comment.save!
 
     render json: @comment, include: { user: [ :profile] }
   end
