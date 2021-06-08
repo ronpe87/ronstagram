@@ -1,4 +1,4 @@
-class SendEmail
+class SendEmail < ActionMailer::Base
   require 'sendgrid-ruby'
   include SendGrid
 
