@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
 
   private
   def send_email
-    CommentMailer.new_comment(photo).deliver_later
+    SendEmail.test_email
   end
 end
