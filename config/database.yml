@@ -82,6 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: ronstagram_production
-  username: ronstagram
-  password: <%= ENV['RONSTAGRAM_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  socket: <%= Rails.application.credentials.db[:socket] %>
