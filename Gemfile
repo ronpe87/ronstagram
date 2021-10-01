@@ -33,7 +33,7 @@ gem 'hamlit-rails'
 gem 'devise'
 gem 'active_model_serializers'
 gem 'faker'
-gem 'aws-sdk-s3', require: false
+# gem 'aws-sdk-s3', require: false
 gem 'sendgrid-ruby'
 
 group :development, :test do
