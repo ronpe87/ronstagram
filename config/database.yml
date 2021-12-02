@@ -27,7 +27,8 @@ development:
   <<: *default
   host: db
   database: ronstagram_development
-
+  username: ron
+  password: tenten2
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

@@ -9,6 +9,8 @@ services:
     environment:
       MYSQL_DATABASE: ronstagram_development
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: ron
+      MYSQL_PASSWORD: tenten2
   web:
     build:
       context: .

@@ -1,12 +1,15 @@
 FROM ruby:2.6
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y mariadb-client --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
-
+RUN apt-get update\
+  && apt-get install -y --no-install-recommends\
+  nodejs  \
+  mariadb-client  \
+  build-essential  \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 WORKDIR /ronstagram
 
-ADD Gemfile /ronstagram/Gemfile
-ADD Gemfile.lock /ronstagram/Gemfile.lock
+COPY Gemfile /ronstagram/Gemfile
+COPY Gemfile.lock /ronstagram/Gemfile.lock
 
 RUN gem install bundler
 RUN bundle install
